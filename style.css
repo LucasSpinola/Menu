@@ -1,0 +1,115 @@
+* { /* selecionando tudo */
+    margin: 0; /* margen */
+    padding: 0; /* preencher */
+}
+
+a {
+    color: #fff; /* cor */
+    text-decoration: none; /* sem sublinhado */
+    transition: 0.3s; /* transição */
+}
+
+
+a:hover { /* quando posicionar o cusor sobre */
+    opacity: 0.7; /* opacidade */
+}
+
+.logo { /* classe dentro do body */
+    font-size: 24px; /* tamanho do texto */
+    text-transform: uppercase; /* estende */
+    letter-spacing: 4px; /* espaço entre as letras */
+}
+
+nav {
+    display: flex; /* colocar o logo e a lista ao lado */
+    justify-content: space-around; /* metade do espaço entre eles */
+    align-items: center; /* centralizado */
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif; /* fontes */
+    background: rebeccapurple; /* background superior */
+    height: 8vh; /* janela de vizualização */
+}
+
+main { /* o que está dentro do body */
+    background: url("bg.jpg") no-repeat /* imagem colocada no centro */
+    center center; /* eixo x e y */
+    background-size: cover; /* caso a resolução do monitor for maior que a imagem */
+    height: 92vh; /* altura, completando 100vh com o da nav logo acima */
+}
+
+.nav-list { /* o que está dentro do body, ul */
+    list-style: none; /* aparência do marcador */
+    display: flex; /* lado a lado */
+}
+
+.nav-list li { /* o que está dentro do body, ul */
+    letter-spacing: 3px; /* espaço entre os itens */
+    margin-left: 32px; /* area da margem */
+}
+
+.mobile-menu { /* o que está dentro da div */
+    display: none; /* para só aparecer em telas menores */
+    cursor: pointer; /* mostrar cursor */
+}
+
+.mobile-menu div { /* representa cada linha */
+    width: 32px; /* largura */
+    height: 2px; /* altura */
+    background: #fff; /* fundo */
+    margin: 8px; /* margem */
+    transition: 0.3s; /* transição */
+}
+
+@media (max-width: 999px) { /* quando o tamanho for 999px, fica absoluta */
+    body {
+        overflow-x: hidden; /* se tranbordar esconde */
+    }
+    .nav-list { /* var está no body */
+        position: absolute; /* posição */
+        top: 8vh; /* para ficar abaixo do header */
+        right: 0; /* menu ficara na direita */
+        width: 40vw; /* largura */
+        height: 92vh; /* altura */
+        background: rebeccapurple; /* cor do background */
+        flex-direction: column; /* deixar um embaixo do outro, coluna. */
+        align-items: center; /* alinhar */
+        justify-content: space-around; /* dando espaço entre eles */
+        transform: translateX(100%); /* scroll vertical */
+        transition: transform 0.3s ease-in; /* animação, chegada suave */
+    }
+    .nav-list li { /* var */
+        margin-left: 0; /* para ficar corretamente ao centro */
+    }
+    .mobile-menu { /* var da div */
+        display: block; /* ajustar layout */
+    }
+}
+
+
+.nav-list.active { /* classe add no js, quando a nav estiver ativa */
+    transform: translateX(0); /* volta para o 0 */
+}
+
+@keyframes navLinkFade { /* animar opacidade dos links */
+    from {
+        opacity: 0; /*  anima de 0 */
+        transform: translateX(50px); /* translação esquerda */
+    }
+    to {
+        opacity: 1; /* até a 1 */
+        transform: translateX(0); /* para direita */
+    }
+}
+
+.mobile-menu.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px); /* rotação e translação */
+}
+
+.mobile-menu.active .line2 {
+    opacity: 0; /* opaciade */
+
+}
+
+.mobile-menu.active .line3 {
+    transform: rotate(45deg) translate(-5px, 7px); /* rotação e translação */
+
+}
